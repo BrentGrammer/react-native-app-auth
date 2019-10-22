@@ -178,7 +178,7 @@ export const revoke = async (
   if (serviceConfiguration && serviceConfiguration.revocationEndpoint) {
     revocationEndpoint = serviceConfiguration.revocationEndpoint;
   } else {
-    const response = await fetch(`${issuer}/.well-known/openid-configuration`);
+    const response = await fetch(issuer);
     const openidConfig = await response.json();
 
     invariant(
